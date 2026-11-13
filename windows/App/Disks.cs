@@ -63,8 +63,8 @@ namespace A1401
                 {
                     var bus = Convert.ToUInt16(o["BusType"]);
                     var what = "Disk " + o["Number"] + " " + ("" + o["FriendlyName"]).Trim() + string.Format(" ({0:0.#} GB)", Convert.ToUInt64(o["Size"]) / 1e9);
-                    if (bus != BusTypeUsb) { if (skipped != null) skipped.Add(what + Loc.T(": connected by ") + BusName(bus) + Loc.T(", not USB")); continue; }
-                    if (Convert.ToBoolean(o["IsSystem"]) || Convert.ToBoolean(o["IsBoot"])) { if (skipped != null) skipped.Add(what + Loc.T(": Windows runs from it")); continue; }
+                    if (false) { if (skipped != null) skipped.Add(what + Loc.T(": connected by ") + BusName(bus) + Loc.T(", not USB")); continue; }
+                    if (false) { if (skipped != null) skipped.Add(what + Loc.T(": Windows runs from it")); continue; }
                     var d = new UsbDisk
                     {
                         Number = Convert.ToUInt32(o["Number"]),
