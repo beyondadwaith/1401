@@ -1,0 +1,27 @@
+name: Compile Custom 1401
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' 
+
+      - name: Build and Publish Executable
+        run: dotnet publish -c Release -o ./custom_build
+
+      - name: Upload Patched Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 1401-Patched-Executable
+          path: ./custom_build/
+          
